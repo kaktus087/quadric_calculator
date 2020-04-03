@@ -39,7 +39,7 @@ def schedule():
 	function = other_func_entry.get()
 	#print(function)
 	fig, ax = plt.subplots()
-	x = np.linspace(-25, 25, 50)
+	x = np.linspace(-25, 25, 200)
 	y = eval(function)
 	ax.plot(x, y)
 	plt.grid()
