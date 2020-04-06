@@ -37,27 +37,16 @@ def ckicked():
 
 def schedule():
 	function = other_func_entry.get()
-	#print(function)
-	fig, ax = plt.subplots()
-	x = np.linspace(-25, 25, 200)
-	y = eval(function)
-	ax.plot(x, y)
-	plt.grid()
-	plt.show()
+	if "^" in function:
+		messagebox.showinfo("Error", "Пишите знак степени так - **")
+	else:
+		fig, ax = plt.subplots()
+		x = np.linspace(-10, 10, 100)
+		y = eval(function)
+		ax.plot(x, y)
+		plt.grid()
+		plt.show()
 
-def doc():
-	root_2 = Tk()
-	label_1 = Label(root_2, text="""
-Знак степени писать
-вот так - **,
-а не так - ^.""")
-	label_1.grid()
-	label_2 = Label(root_2, text="""
-sin, cos, exp, log и тд
-пишется по примеру:
-np.sin(x) и тд.""")
-	label_2.grid()
-	root_2.mainloop()
 
 quadratic_equation = Label(root, text="ax^2 + bx + c = 0", font="1")
 quadratic_equation.place(x=60, y=0)
@@ -88,9 +77,6 @@ button_other_func.place(x=85, y=170)
 
 other_func_entry = Entry(root, width=20)
 other_func_entry.place(x=85, y=145)
-
-documentation = Button(text="Документация", command = doc)
-documentation.place(x=85, y=200)
 
 root.geometry("450x250")
 root.title("Discriminant")
